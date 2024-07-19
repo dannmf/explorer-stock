@@ -3,6 +3,8 @@ import { FiUser, FiLogOut } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth';
 
 import { Container, User } from './styles';
+import { USER_ROLE } from '../../utils/roles';
+import { USER_ROLE_FORMATTED } from '../../utils/role_formatter';
 
 export function Header() {
     const { signOut, user } = useAuth();
@@ -15,7 +17,7 @@ export function Header() {
                 <User>
                     <span>Olá, <strong>{user.name}</strong></span>
                     <small>
-                        <FiUser /> Perfil do usuário
+                        <FiUser /> Perfil de: {USER_ROLE_FORMATTED[user.role]}
                     </small>
                 </User>
             </aside>
